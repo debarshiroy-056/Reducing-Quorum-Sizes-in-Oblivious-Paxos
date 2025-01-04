@@ -34,7 +34,7 @@ plt.bar([p + bar_width for p in x], traditional_values, bar_width, label='Tradit
 # Add labels and title
 plt.xlabel('Metrics', fontsize=12)
 plt.ylabel('Values', fontsize=12)
-plt.title('Comparison of Grid Quorum vs. Traditional Quorum (Average Latency Focus)', fontsize=14)
+plt.title('Comparison of Grid Quorum vs. Traditional Quorum', fontsize=14)
 plt.xticks([p + bar_width / 2 for p in x], categories, fontsize=10)
 plt.legend(loc='best')
 plt.grid(axis='y', linestyle='--', alpha=0.7)

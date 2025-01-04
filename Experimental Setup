@@ -1,0 +1,45 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate data for Average Latency, Throughput, and Resource Efficiency
+# Metrics for Grid Quorum
+grid_metrics = {
+    "Average Latency (ms)": np.random.uniform(300, 600, 100).mean(),  # Latency in milliseconds
+    "Throughput (agreements/sec)": 2000,  # Example static value
+    "Resource Efficiency (%)": 95  # Example static value
+}
+
+# Metrics for Traditional Quorum
+traditional_metrics = {
+    "Average Latency (ms)": np.random.uniform(700, 1000, 100).mean(),  # Latency in milliseconds
+    "Throughput (agreements/sec)": 1250,  # Example static value
+    "Resource Efficiency (%)": 92  # Example static value
+}
+
+# Data for plotting
+categories = list(grid_metrics.keys())
+grid_values = list(grid_metrics.values())
+traditional_values = list(traditional_metrics.values())
+
+# Create bar chart for comparison
+x = range(len(categories))  # Category indices
+bar_width = 0.35
+
+plt.figure(figsize=(10, 6))
+
+# Plot bars for Grid Quorum and Traditional Quorum
+plt.bar(x, grid_values, bar_width, label='Grid Quorum', color='blue', alpha=0.7)
+plt.bar([p + bar_width for p in x], traditional_values, bar_width, label='Traditional Quorum', color='orange', alpha=0.7)
+
+# Add labels and title
+plt.xlabel('Metrics', fontsize=12)
+plt.ylabel('Values', fontsize=12)
+plt.title('Comparison of Grid Quorum vs. Traditional Quorum (Average Latency Focus)', fontsize=14)
+plt.xticks([p + bar_width / 2 for p in x], categories, fontsize=10)
+plt.legend(loc='best')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Save and show the plot
+plt.tight_layout()
+plt.savefig('Grid_vs_Traditional_Quorum_Comparison_Latency_Focus.png')
+plt.show()
